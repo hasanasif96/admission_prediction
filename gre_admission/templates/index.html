@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Admission Predictor</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+
+    <body>
+            	        <!-- Navigation Menu -->
+        <nav> 
+            <ul> 
+                <li class="active"><a href="/home">Home</a></li> 
+                <li><a href="/about">About Us</a></li>
+            </ul> 
+        </nav>
+
+        <!-- Website Title -->
+    	<div class="box">
+            <h2 class='box-heading'><span class="heading_font">Admission Predictor</span></h2>
+            <div class='description'>
+    			<p>A Machine Learning based Web App for admission prediction.</p>
+    		</div>
+    	</div>
+
+        <!-- Text Area -->
+    	<div class="ml-box">
+    		<form action="{{ url_for('predict') }}" method="POST">
+	<label for="gre_score">GRE SCORE</label>
+                <input class="form-input" type="text" name="gre_score" placeholder="Enter GRE score out of 340" ><br>
+	<label for="TOFEL">TOFEL</label>
+                <input class="form-input" type="text" name="TOFEL"  placeholder="Enter TOFEL score out of120"><br>
+	<label for="University_ranking">University_ranking</label>
+                
+	<select id="University_ranking" name="University_ranking">
+        		<option value="choose">choose value</option>
+        		<option value="1">1</option>
+       	 	<option value="2">2</option>
+       		<option value="3">3</option>
+       	 	<option value="4">4</option>
+       		<option value="5">5</option>
+     	 </select><br>
+	<label for="SOP">SOP</label>
+                <input class="form-input" type="text" name="SOP" placeholder="Enter SOP Rating btwn 1 to 5" ><br>
+	<label for="LOR">LOR</label>
+                <input class="form-input" type="text" name="LOR"  placeholder="Enter LOR Rating btwn 1 to 5" ><br>
+	<label for="CGPA">CGPA</label>
+                <input class="form-input" type="text" name="CGPA"  placeholder="Out of 10" ><br>
+	<label for="Research">Research</label>
+                <input class="form-input" type="text" name="Research" placeholder="Enter number of research paper published"  ><br>
+
+                  <div class="row">
+    		<input type="submit" value="Submit">
+	  </div>
+
+        		<!--<input type="submit" class="button" value="Predict">-->
+        	</form>
+    	</div>
+
+
+	</div>
+    </body>
+</html>
