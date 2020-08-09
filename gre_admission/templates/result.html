@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Admission Predictor</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+
+    <body>
+            	        <!-- Navigation Menu -->
+        <nav> 
+            <ul> 
+                <li class="active"><a href="/home">Home</a></li> 
+                <li><a href="/about">About Us</a></li>
+            </ul> 
+        </nav>
+
+
+
+		<!-- Result -->
+
+
+			
+			<div class="results">
+        			{% if prediction_high>=100 %}
+                			<p class='result-p'>Your chance of admission is between : {{ prediction_low }}% to 95%</p>
+        			{% elif prediction_high< 100 %}
+                			<p class='result-p'>Your chance of admission is between : {{ prediction_low }}% to {{ prediction_high }}%</p>
+        			{% endif %}
+			</div>
+			<div class='recommendation-heading'>
+			<h >Some University Recommendation</h>
+			</div>
+			<div class="row">
+  			  <div class="column">
+			    <div class="card">
+ 			       <img src="static//univ.jpg" alt="Avatar" style="width:100%">
+  			         <div class="univ-name">
+			           {% if suggestion %}
+				<p class='recommend-p'> {{suggestion}}</p>
+			           {% endif %}
+  			        </div>
+			    </div>
+			  </div>
+			<div class="column">
+			    <div class="card">
+ 			       <img src="static//univ.jpg" alt="Avatar" style="width:100%">
+  			         <div class="univ-name">
+			           {% if suggestion %}
+				<p class='recommend-p'>{{suggestion1}}</p>
+			           {% endif %}
+  			        </div>
+			    </div>
+			  </div>
+			<div class="column">
+			    <div class="card">
+ 			       <img src="static//univ.jpg" alt="Avatar" style="width:100%">
+  			         <div class="univ-name">
+			           {% if suggestion %}
+				<p class='recommend-p'>{{suggestion2}}</p>
+			           {% endif %}
+  			        </div>
+			    </div>
+			  </div>
+			<a href="/home" class="Again">&laquo; Predict Again</a>
+			</div>
+    </body>
+</html>
